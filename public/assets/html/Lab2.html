@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            -webkit-animation: fadeEffect 1s;
+            animation: fadeEffect 1s;
+            border: 1px solid black;
+            border-top: 0px;
+
+
+        }
+
+        /* Fade in tabs */
+        @-webkit-keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3>Fade in Tabs</h3>
+        <tr style="float:right;">
+            <td colspan="5">
+                <div class=""><a href="index.html">Go Back</a></div>
+            </td>
+        </tr>
+
+</div>
+<div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Requirement</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Design</button>
+    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Implement</button>
+</div>
+
+<div id="London" class="tabcontent">
+    <h3>Requirement: </h3>
+    <p>Chọn 1 đối tượng bất kỳ trong thế giới thực, <br>Ví dụ như
+        lớp môn học, giảng viên,... Sau đó thiết kế chức năng Quản lý đối
+        tượng đó trên html bao gồm các tính năng thêm, sửa, xóa, tìm
+        kiếm cho đối tượng đó. <br>Ví dụ, làm chức năng Quản lý Sinh viên,
+        bao gôm tính năng thêm, sửa, xóa, tìm kiếm. Chú ý: Các thành
+        viên trong nhóm không được chọn các đối tượng giống nhau.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+    <h3>Design:</h3>
+    <p>Paris is the capital of France.</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+    <h3>Implement:</h3>
+    <p><a href="Lab1.html">Quản lý sinh viên</a></p>
+</div>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    document.getElementById("defaultOpen").click();
+
+</script>
+
+</body>
+</html>
